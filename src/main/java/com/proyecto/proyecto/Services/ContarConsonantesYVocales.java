@@ -10,11 +10,9 @@ public class ContarConsonantesYVocales {
     }
     
     public static String contarConsonantes(String palabra){
-        
+
         int contadorConsonantes =0;
         int contadorVocales =0;
-        
-        
         int longitudPalabra=palabra.length();
 
         for (int i = 0; i < longitudPalabra; i++) {

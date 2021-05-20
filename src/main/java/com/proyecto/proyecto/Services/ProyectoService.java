@@ -1,5 +1,7 @@
 package com.proyecto.proyecto.Services;
 
+import com.proyecto.proyecto.Models.DatosModel;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -21,6 +23,8 @@ public class ProyectoService {
         String url = "https://api.mymemory.translated.net/get?q=" + frase + "&langpair=es|en";
         Traduction json = restTemplate.getForObject(url,Traduction.class);
         return json.responseData.translatedText;
+    }
 
+    public static void addGatos(DatosModel datosModel) {
     }
 }
