@@ -1,4 +1,4 @@
-package com.proyecto.proyecto.Controller;
+package com.proyecto.proyecto.Services;
 import org.springframework.stereotype.Service;
 
 @Service
