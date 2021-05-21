@@ -10,11 +10,14 @@
 <body>
    
     <h1>Traductor</h1>
-     <div class="container">
-        <p>Introduzca la frase:<span th:text=${frase}></span></p>
+    <div class="container">
+        <p class="frase">Frase original: <span th:text=${frase}></span>
+            <br/>
+            
+        Traducción: <span class="translatedText" th:text=${translatedText}></span> </p>
             <br/>
 
-            <p>Traducción: <span class="textoTraducido" th:text = ${textoTraducido}></span></span></p>
+
     </div>
 </body>
 </html>

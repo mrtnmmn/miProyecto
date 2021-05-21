@@ -12,7 +12,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name="informacion")
+@Table(name="datos")
 public class DatosModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,19 +20,10 @@ public class DatosModel {
     private Long id;
 
     private String nombre;
-    private String raza;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private Date fecha;
-
-    public String getRaza() {
-        return raza;
-    }
-
-    public void setRaza(String raza) {
-        this.raza = raza;
-    }
 
     public String getNombre() {
         return nombre;
@@ -52,6 +43,6 @@ public class DatosModel {
 
     @Override
     public String toString() {
-        return "DatosModel [Nombre" +nombre+", raza=" + raza + ", fecha=" + fecha + "]";
+        return "DatosModel [Nombre" +nombre+", fecha=" + fecha + "]";
     }    
 }
