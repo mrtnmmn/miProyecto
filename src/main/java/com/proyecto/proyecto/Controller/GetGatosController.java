@@ -1,7 +1,7 @@
 package com.proyecto.proyecto.Controller;
 
 import com.proyecto.proyecto.Models.DatosModel;
-import com.proyecto.proyecto.Services.GatosService;
+import com.proyecto.proyecto.Services.ProyectoBDService;
 import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,11 +12,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class GetGatosController {
 
   @Autowired
-  GatosService gatosService;
+  ProyectoBDService proyectoBDService;
 
+  /*no funciona*/
   @RequestMapping("/listarGatos")
   public String getAllGatos(Model model) {
-    ArrayList<DatosModel> informacion = gatosService.getGatos();
+    ArrayList<DatosModel> informacion = proyectoBDService.devuelveDatos();
     model.addAttribute("gatos", informacion);
     return "listaGatos";
   }
