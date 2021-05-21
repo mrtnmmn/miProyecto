@@ -11,13 +11,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class TraduceController {
 
   @Autowired
-  TraduceService traduceService;
+    TraduceService traduceService;
 
-  @RequestMapping("/traduce/{cadena}")
-  public String traduce(@PathVariable String cadena, Model model) {
-    String cadenaTraducida = traduceService.traduccion(cadena);
-    model.addAttribute("cadena", cadena);
-    model.addAttribute("cadenaTraducida", cadenaTraducida);
-    return "traduce";
-  }
+    /*funciona*/
+    @RequestMapping("/traduce/{cadena}")
+    public  String traduce(@PathVariable String cadena, Model modelo){
+        String cadenaTraducida= traduceService.traduccion(cadena);
+        modelo.addAttribute("cadena", cadena);
+        modelo.addAttribute("cadenaTraducida", cadenaTraducida);
+        return "traduccion";
+    }
 }
