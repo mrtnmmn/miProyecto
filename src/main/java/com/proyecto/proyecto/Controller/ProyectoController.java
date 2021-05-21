@@ -4,14 +4,11 @@ import com.proyecto.proyecto.Models.DatosModel;
 import com.proyecto.proyecto.Services.ContarConsonantesYVocales;
 import com.proyecto.proyecto.Services.ProyectoBDService;
 import com.proyecto.proyecto.Services.RevertirService;
-import com.proyecto.proyecto.Services.TraduceService;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -31,13 +28,16 @@ public class ProyectoController {
       "Funciones que puede realizar:" +
       "<br>" +
       "<br>" +
-      "Guardar datos en la base de datos escribe '/almacenarGatos'" +
+      "Guardar datos en la base de datos escribe /insercionDatos" +
+      "<br>" +
+      "<br>" +
+      "Lista los gatos que introducimos en la base de datos escribe /listarGatos" +
       "<br>" +
       "<br>" +
       "Para contar las vocales y consonantes de una palabra escribe '/contar/'" +
       "<br>" +
       "<br>" +
-      "si quieres listar los datos de la base escribe '/listarGatos/ datos'"
+      "Para invertir una palabra escribe /fraseAlreves/{texto}'"
     );
   }
 
@@ -48,6 +48,7 @@ public class ProyectoController {
     return resultado;
   }
 
+
   @Autowired
   ProyectoBDService proyectoBDService;
 
@@ -57,20 +58,18 @@ public class ProyectoController {
     return proyectoBDService.devuelveDatos().toString();
   }
 
-  /*no funiona*/
-  @PostMapping("/insertaGatos")
-  public String insertaGatos(@RequestParam Map<String, String> body) {
-    System.out.println(body.get("dato"));
+  @PostMapping("/insertaDatos")
+  public String insertaDatos(@RequestParam Map<String, String> body) {
+    System.out.println(body.get("nombre"));
     DatosModel entornosModel = new DatosModel();
-    entornosModel.setNombre(body.get("dato"));
+    entornosModel.setNombre(body.get("nombre"));
     proyectoBDService.guardarDatos(entornosModel);
     return "guardado correctamente";
   }
 
-  /*funciona*/
-  @GetMapping("/cadenaReves/{texto}")
-  public String cadenaAlReves(@PathVariable String cadena) {
-    String cadenaReves = RevertirService.fraseAlreves(cadena);
-    return "Palabra original: " + cadena + " y al revés: " + cadenaReves;
+  @GetMapping("/revertirCadena/{cadena}")
+  public String fraseAlreves(@PathVariable String cadena) {
+    String fraseAlreves = RevertirService.fraseAlreves(cadena);
+    return "Palabra original: " + cadena + " y al revés: " + fraseAlreves;
   }
 }
