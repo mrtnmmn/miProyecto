@@ -31,17 +31,19 @@ public class ProyectoController {
       "Guardar datos en la base de datos escribe /insertaGatos" +
       "<br>" +
       "<br>" +
+      "Para introducir un gato en la base de datos escribe /formularioGato" +
+      "<br>" +
+      "<br>" +
       "Lista los gatos que introducimos en la base de datos escribe /listarGatos" +
       "<br>" +
       "<br>" +
-      "Para contar las vocales y consonantes de una palabra escribe '/contar/'" +
+      "Para contar las vocales y consonantes de una palabra escribe '/contar/xxx'" +
       "<br>" +
       "<br>" +
       "Para invertir una palabra escribe /fraseAlreves/{texto}'"
     );
   }
 
-  /*funciona*/
   @GetMapping("/contar/{palabra}")
   public String contarVocalesYConsonantes(@PathVariable String palabra) {
     String resultado = ContarConsonantesYVocales.contarConsonantes(palabra);
@@ -51,7 +53,6 @@ public class ProyectoController {
   @Autowired
   ProyectoBDService proyectoBDService;
 
-  /*funciona*/
   @GetMapping("/listarGatos")
   public String listarGatos() {
     return proyectoBDService.devuelveDatos().toString();
