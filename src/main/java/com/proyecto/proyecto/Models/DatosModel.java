@@ -24,7 +24,7 @@ public class DatosModel {
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-    private Date fecha; // Si no pongo fecha, la fecha será la del sistema
+    private Date fecha;
 
     public String getRaza() {
         return raza;

@@ -3,14 +3,11 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ContarConsonantesYVocales {
-    
-
     public static boolean esVocal(char letra){
         return "aeiou".contains(String.valueOf(letra).toLowerCase());
     }
     
     public static String contarConsonantes(String palabra){
-
         int contadorConsonantes =0;
         int contadorVocales =0;
         int longitudPalabra=palabra.length();
@@ -19,6 +16,6 @@ public class ContarConsonantesYVocales {
             if(esVocal(palabra.charAt(i))) contadorConsonantes++;
             else contadorVocales++;
         }
-        return "El número de consonantes es: " + contadorConsonantes  +  " y el número de vocales es: " + contadorVocales;
+        return "Nº consonantes: " + contadorConsonantes  +  ", nº vocales: " + contadorVocales;
     }
 }

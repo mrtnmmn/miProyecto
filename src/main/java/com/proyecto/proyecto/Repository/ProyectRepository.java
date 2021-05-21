@@ -7,8 +7,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ProyectRepository extends CrudRepository<DatosModel, Long>{
-    //@Query(value="SELECT * FROM pokemon WHERE nombre='Pepe'")
-    //ArrayList<PokemonModel> sentenciaSqlSuperChunga();
 
 }
 

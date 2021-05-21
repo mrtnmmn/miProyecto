@@ -3,7 +3,7 @@ package com.proyecto.proyecto.Services;
 import org.springframework.stereotype.Service;
 
 @Service
-public class TransformarFrase {
+public class RevertirService {
 
   public static String fraseAlreves(String cadena) {
     String reverse = "";
