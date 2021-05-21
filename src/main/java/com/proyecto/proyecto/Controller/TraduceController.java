@@ -13,12 +13,11 @@ public class TraduceController {
   @Autowired
     TraduceService traduceService;
 
-    /*funciona*/
-    @RequestMapping("/traduce/{cadena}")
-    public  String traduce(@PathVariable String cadena, Model modelo){
-        String cadenaTraducida= traduceService.traduccion(cadena);
-        modelo.addAttribute("cadena", cadena);
-        modelo.addAttribute("cadenaTraducida", cadenaTraducida);
+    @RequestMapping("/traduce/{frase}")
+    public  String traduce(@PathVariable String frase, Model modelo){
+        String translatedText= traduceService.traduccion(frase);
+        modelo.addAttribute("frase", frase);
+        modelo.addAttribute("translatedText", translatedText);
         return "traduccion";
     }
 }

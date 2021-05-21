@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class GuardarBDController {
 
   /*no funciona*/
-  @RequestMapping("/insercionDatos")
-  public String insercionProyecto() {
-    return "insercionDatos";
+  @RequestMapping("/formularioGato")
+  public String formularioGato() {
+    return "formularioInsertaGato";
   }
 }

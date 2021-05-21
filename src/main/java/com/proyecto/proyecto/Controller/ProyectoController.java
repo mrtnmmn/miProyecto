@@ -28,7 +28,7 @@ public class ProyectoController {
       "Funciones que puede realizar:" +
       "<br>" +
       "<br>" +
-      "Guardar datos en la base de datos escribe /insercionDatos" +
+      "Guardar datos en la base de datos escribe /insertaGatos" +
       "<br>" +
       "<br>" +
       "Lista los gatos que introducimos en la base de datos escribe /listarGatos" +
@@ -48,7 +48,6 @@ public class ProyectoController {
     return resultado;
   }
 
-
   @Autowired
   ProyectoBDService proyectoBDService;
 
@@ -56,15 +55,6 @@ public class ProyectoController {
   @GetMapping("/listarGatos")
   public String listarGatos() {
     return proyectoBDService.devuelveDatos().toString();
-  }
-
-  @PostMapping("/insertaDatos")
-  public String insertaDatos(@RequestParam Map<String, String> body) {
-    System.out.println(body.get("nombre"));
-    DatosModel entornosModel = new DatosModel();
-    entornosModel.setNombre(body.get("nombre"));
-    proyectoBDService.guardarDatos(entornosModel);
-    return "guardado correctamente";
   }
 
   @GetMapping("/revertirCadena/{cadena}")

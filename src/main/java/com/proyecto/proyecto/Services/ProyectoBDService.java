@@ -14,8 +14,8 @@ public class ProyectoBDService {
     @Autowired
     ProyectRepository proyectRepository;
 
-    public DatosModel guardarDatos(DatosModel datosModel){
-        return proyectRepository.save(datosModel);
+    public DatosModel guardarDatos(DatosModel gato){
+        return proyectRepository.save(gato);
     }
 
     public ArrayList<DatosModel> devuelveDatos(){
